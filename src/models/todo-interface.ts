@@ -1,7 +1,12 @@
-export interface Task {
-    id: string,
-    name: string, 
-    status : 'todo' | 'done'
+export enum TaskStatus {
+  Todo = "todo",
+  Done = "done",
 }
 
-export type NewTask = Omit<Task, 'id'>;
+export interface Task {
+  id: string;
+  name: string;
+  status: TaskStatus;
+}
+
+export type NewTask = Omit<Task, "id">;

@@ -13,3 +13,10 @@ export async function addTask(task: NewTask) {
     return await addDoc(tasksCollection, task)
 }
 
+export async function deleteTask(taskId: string) {
+    return await deleteDoc(doc(db, "tasks", taskId))
+}
+
+export async function updateTask(taskId: string, updatedTask: NewTask){
+    return await updateDoc(doc(db, "tasks", taskId), updatedTask);
+};

@@ -12,7 +12,7 @@ export default function TodoList({ list, onStatusToggle, onDeleteTodo }: Props) 
     <>
       {list?.map((todo) => (
         <TodoItem
-          todo={todo}
+          task={todo}
           onDelete={() => onDeleteTodo(todo)}
           onStatusToggle={() => onStatusToggle(todo)}
           key={todo.id}

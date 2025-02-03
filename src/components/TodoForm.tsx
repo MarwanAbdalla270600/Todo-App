@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { NewTask } from "../models/todo-interface";
+import { NewTask, TaskStatus } from "../models/todo-interface";
 
 interface Props {
   onCreateTodo: (data: NewTask) => void;
@@ -11,7 +11,7 @@ export default function TodoForm({ onCreateTodo }: Props) {
   function createTodo(name: string): NewTask {
     return {
       name: name,
-      status: "todo",
+      status: TaskStatus.Todo,
     };
   }
 
