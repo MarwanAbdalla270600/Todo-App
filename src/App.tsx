@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="container mx-auto py-4 flex flex-col items-center gap-8">
       <h1 className="text-5xl text-center">Todo App</h1>
-      <div className="w-3xl flex flex-col gap-4">
+      <div className="xl:w-3xl md:w-full flex flex-col gap-4">
         <TaskForm onCreateTodo={addTask}></TaskForm>
         {tasks.length > 0 && (
           <div className="p-4 text-2xl bg-base-200 rounded-3xl">
