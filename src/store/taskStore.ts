@@ -15,10 +15,9 @@ interface TaskState {
   deleteTask: (id: string) => void;
 }
 
-const initTasks = await getAllTasks();
 
 export const useTaskStore = create<TaskState>((set) => ({
-  tasks: initTasks as Task[],
+  tasks: [] as Task[],
 
   initTasks: async () => {
     const fetchedTasks = (await getAllTasks()) as Task[];
