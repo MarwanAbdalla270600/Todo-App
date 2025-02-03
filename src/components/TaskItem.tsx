@@ -8,7 +8,7 @@ interface Props {
   onDelete: () => void;
 }
 
-export default function TodoItem({ task, onStatusToggle ,onDelete }: Props) {
+export default function TaskItem({ task, onStatusToggle ,onDelete }: Props) {
   const [isChecked, setIsChecked] = useState(setCheckbox(task));
 
   function toggleStatus() {

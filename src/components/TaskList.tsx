@@ -1,22 +1,22 @@
 import { Task } from "../models/todo-interface";
-import TodoItem from "./TodoItem";
+import TaskItem from "./TaskItem";
 
 interface Props {
   list: Task[] | null;
   onStatusToggle: (todo: Task) => void;
-  onDeleteTodo: (todo: Task) => void;
+  onDeleteTodo: (taskId: string) => void;
 }
 
-export default function TodoList({ list, onStatusToggle, onDeleteTodo }: Props) {
+export default function TaskList({ list, onStatusToggle, onDeleteTodo }: Props) {
   return (
     <>
       {list?.map((todo) => (
-        <TodoItem
+        <TaskItem
           task={todo}
-          onDelete={() => onDeleteTodo(todo)}
+          onDelete={() => onDeleteTodo(todo.id)}
           onStatusToggle={() => onStatusToggle(todo)}
           key={todo.id}
-        ></TodoItem>
+        ></TaskItem>
       ))}
     </>
   );

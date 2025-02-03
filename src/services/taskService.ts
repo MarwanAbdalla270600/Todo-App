@@ -1,6 +1,6 @@
 import { db } from "../config/firebase";
 import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { NewTask, Task } from "../models/todo-interface";
+import { NewTask } from "../models/todo-interface";
 
 const tasksCollection = collection(db, "tasks");
 

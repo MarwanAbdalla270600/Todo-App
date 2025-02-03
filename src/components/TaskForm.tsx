@@ -5,7 +5,7 @@ interface Props {
   onCreateTodo: (data: NewTask) => void;
 }
 
-export default function TodoForm({ onCreateTodo }: Props) {
+export default function TaskForm({ onCreateTodo }: Props) {
   const ref = useRef<HTMLInputElement | null>(null);
 
   function createTodo(name: string): NewTask {

@@ -1,64 +1,40 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
-import { NewTask, Task, TaskStatus } from "./models/todo-interface";
-import { addTask, deleteTask, getAllTasks, updateTask } from "./services/todoService";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import { Task, TaskStatus } from "./models/todo-interface";
+import { useTaskStore } from "./store/taskStore";
 
 function App() {
-  const [todos, setTodos] = useState<Task[]>([]);
+
+  const tasks = useTaskStore((state) => state.tasks); 
+  const initTasks = useTaskStore((state) => state.initTasks)
+  const addTask = useTaskStore((state) => state.addTask); 
+  const updateTask = useTaskStore((state) => state.updateTask)
+  const deleteTask = useTaskStore((state) => state.deleteTask)
 
   useEffect(() => {
-    initTasks();
-  }, []);
+    initTasks()
+  }, [])
 
-  useEffect(() => {
-    console.log(todos);
-  }, [todos]);
-
-
-  async function initTasks() {
-    try {
-      const tasks = await getAllTasks();
-      setTodos(tasks as Task[]);
-    } catch (err) {
-      console.log("error has occured fetching tasks");
-    }
-  }
-
-  async function addTodo(data: NewTask) {
-    const newTask = await addTask(data)
-    setTodos([...todos, { ...data, id: newTask.id }]);
-  }
-
-  async function toggleStatusForTodo(todo: Task) {
+  function toggleStatusForTodo(todo: Task) {
     const newStatus = todo.status === TaskStatus.Todo ? TaskStatus.Done : TaskStatus.Todo;
     const { id, ...newTask } = { ...todo, status: newStatus };
-    console.log(newTask)
-    await updateTask(id, newTask)
-    const updatedTodos = todos.map((item) =>
-      item.id === todo.id ? ({ ...item, status: newStatus } as Task) : item
-    );
-    setTodos(updatedTodos);
-  }
-
-  async function removeTodo(task: Task) {
-    await deleteTask(task.id)
-    setTodos(todos.filter((item) => item.id !== task.id));
+    updateTask(id, newTask)
   }
 
   return (
     <div className="container mx-auto py-4 flex flex-col items-center gap-8">
       <h1 className="text-5xl text-center">Todo App</h1>
       <div className="w-3xl flex flex-col gap-4">
-        <TodoForm onCreateTodo={addTodo}></TodoForm>
-        {todos.length > 0 && (
+        <TaskForm onCreateTodo={addTask}></TaskForm>
+        {tasks.length > 0 && (
           <div className="p-4 text-2xl bg-base-200 rounded-3xl">
-            <TodoList
-              list={todos}
-              onDeleteTodo={($event) => removeTodo($event)}
-              onStatusToggle={($event) => toggleStatusForTodo($event)}
-            ></TodoList>
+            <TaskList
+              list={tasks}
+              onDeleteTodo={deleteTask}
+              onStatusToggle={toggleStatusForTodo}
+            ></TaskList>
           </div>
         )}
       </div>
