@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Task, TaskStatus } from "../models/todo-interface";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { useTaskStore } from "../store/taskStore";
 
-interface Props {
-  task: Task;
-  onStatusToggle: () => void;
-  onDelete: () => void;
-}
-
-export default function TaskItem({ task, onStatusToggle ,onDelete }: Props) {
+export default function TaskItem({ task }: { task: Task }) {
   const [isChecked, setIsChecked] = useState(setCheckbox(task));
 
-  function toggleStatus() {
-    setIsChecked(prev=>!prev)
-    onStatusToggle()
+  const deleteTask = useTaskStore((state) => state.deleteTask);
+  const updateTask = useTaskStore((state) => state.updateTask);
+
+  function toggleStatusForTodo(todo: Task) {
+    setIsChecked((prev) => !prev);
+    const newStatus =
+      todo.status === TaskStatus.Todo ? TaskStatus.Done : TaskStatus.Todo;
+    const { id, ...newTask } = { ...todo, status: newStatus };
+    updateTask(id, newTask);
   }
 
   function setCheckbox(task: Task) {
@@ -21,12 +22,17 @@ export default function TaskItem({ task, onStatusToggle ,onDelete }: Props) {
   }
 
   return (
-    <div className="w-full flex gap-4 justify-between items-center">
-      <div className="flex gap-4 items-center">
-        <input type="checkbox" checked={isChecked} onChange={toggleStatus} className="checkbox" />
+    <div className="flex w-full items-center justify-between gap-4">
+      <div className="flex items-center gap-4">
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={() => toggleStatusForTodo(task)}
+          className="checkbox"
+        />
         <span>{task.name}</span>
       </div>
-      <button className="btn btn-ghost" onClick={onDelete}>
+      <button className="btn btn-ghost" onClick={() => deleteTask(task.id)}>
         <FaRegTrashCan />
       </button>
     </div>

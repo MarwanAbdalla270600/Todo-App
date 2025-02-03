@@ -1,42 +1,37 @@
 import { useRef } from "react";
-import { NewTask, TaskStatus } from "../models/todo-interface";
+import { TaskStatus } from "../models/todo-interface";
+import { useTaskStore } from "../store/taskStore";
 
-interface Props {
-  onCreateTodo: (data: NewTask) => void;
-}
-
-export default function TaskForm({ onCreateTodo }: Props) {
+export default function TaskForm() {
   const ref = useRef<HTMLInputElement | null>(null);
-
-  function createTodo(name: string): NewTask {
-    return {
-      name: name,
-      status: TaskStatus.Todo,
-    };
-  }
+  const addTask = useTaskStore((state) => state.addTask);
 
   function onSubmit(event: React.FormEvent) {
     event.preventDefault();
     if (ref.current?.value) {
-      const todo = createTodo(ref.current.value);
-      onCreateTodo(todo);
-      ref.current.value = "";
+      addTask({
+        name: ref.current.value,
+        status: TaskStatus.Todo,
+      });
     }
   }
 
   return (
-    <form onSubmit={onSubmit} className="w-full flex justify-between rounded-4xl">
+    <form
+      onSubmit={onSubmit}
+      className="flex w-full justify-between rounded-4xl"
+    >
       <div className="join bg-base-300 w-full rounded-3xl">
         <div className="w-full">
-            <input
-              ref={ref}
-              type="text"
-              className="input w-full focus:outline-0 rounded-l-3xl text-2xl p-6 bg-base-200"
-              placeholder="Enter todo..."
-              required
-            />
+          <input
+            ref={ref}
+            type="text"
+            className="input bg-base-200 w-full rounded-l-3xl p-6 text-2xl focus:outline-0"
+            placeholder="Enter todo..."
+            required
+          />
         </div>
-        <button type="submit" className="btn btn-primary rounded-r-3xl h-full">
+        <button type="submit" className="btn btn-primary h-full rounded-r-3xl">
           Add Todo
         </button>
       </div>

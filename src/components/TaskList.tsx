@@ -1,23 +1,8 @@
 import { Task } from "../models/todo-interface";
 import TaskItem from "./TaskItem";
 
-interface Props {
-  list: Task[] | null;
-  onStatusToggle: (todo: Task) => void;
-  onDeleteTodo: (taskId: string) => void;
-}
-
-export default function TaskList({ list, onStatusToggle, onDeleteTodo }: Props) {
+export default function TaskList({ list }: { list: Task[] | null }) {
   return (
-    <>
-      {list?.map((todo) => (
-        <TaskItem
-          task={todo}
-          onDelete={() => onDeleteTodo(todo.id)}
-          onStatusToggle={() => onStatusToggle(todo)}
-          key={todo.id}
-        ></TaskItem>
-      ))}
-    </>
+    <>{list?.map((task) => <TaskItem task={task} key={task.id}></TaskItem>)}</>
   );
 }
