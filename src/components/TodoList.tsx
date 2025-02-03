@@ -1,15 +1,15 @@
-import { Todo } from "../models/todo-interface";
+import { Task } from "../models/todo-interface";
 import TodoItem from "./TodoItem";
 
 interface Props {
-  list: Todo[] | null;
-  onStatusToggle: (todo: Todo) => void;
-  onDeleteTodo: (todo: Todo) => void;
+  list: Task[] | null;
+  onStatusToggle: (todo: Task) => void;
+  onDeleteTodo: (todo: Task) => void;
 }
 
 export default function TodoList({ list, onStatusToggle, onDeleteTodo }: Props) {
   return (
-    <div className="p-4 text-2xl bg-base-200 rounded-3xl">
+    <>
       {list?.map((todo) => (
         <TodoItem
           todo={todo}
@@ -18,6 +18,6 @@ export default function TodoList({ list, onStatusToggle, onDeleteTodo }: Props) 
           key={todo.id}
         ></TodoItem>
       ))}
-    </div>
+    </>
   );
 }

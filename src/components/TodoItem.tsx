@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Todo } from "../models/todo-interface";
+import { Task } from "../models/todo-interface";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 interface Props {
-  todo: Todo;
+  todo: Task;
   onStatusToggle: () => void;
   onDelete: () => void;
 }

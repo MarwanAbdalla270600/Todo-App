@@ -1,16 +1,15 @@
 import { useRef } from "react";
-import { Todo } from "../models/todo-interface";
+import { NewTask } from "../models/todo-interface";
 
 interface Props {
-  onCreateTodo: (data: Todo) => void;
+  onCreateTodo: (data: NewTask) => void;
 }
 
 export default function TodoForm({ onCreateTodo }: Props) {
   const ref = useRef<HTMLInputElement | null>(null);
 
-  function createTodo(name: string): Todo {
+  function createTodo(name: string): NewTask {
     return {
-      id: Math.floor(Math.random() * 90000) + 10000,
       name: name,
       status: "todo",
     };

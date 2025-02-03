@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Todo } from "../models/todo-interface";
+import { Task } from "../models/todo-interface";
 
 export default function useTodos() {
-  const [data, setData] = useState<Todo[] | null>(null);
+  const [data, setData] = useState<Task[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const response = await axios.get<Todo[]>("todos.json");
+        const response = await axios.get<Task[]>("todos.json");
         setData(response.data);
       } catch (error) {
         if (error instanceof Error) {
