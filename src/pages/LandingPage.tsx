@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col justify-between gap-12 px-4 py-12">
@@ -20,8 +22,13 @@ export default function LandingPage() {
         </div>
 
         <div className="flex w-48 justify-end gap-4">
-          <button className="btn btn-ghost rounded-lg">Log In</button>
-          <button className="btn btn-outline rounded-lg">Sign Up</button>
+          <Link to="/login">
+            <button className="btn btn-ghost rounded-lg">Log In</button>
+          </Link>
+
+          <Link to="/register">
+            <button className="btn btn-outline rounded-lg">Sign Up</button>
+          </Link>
         </div>
       </header>
 

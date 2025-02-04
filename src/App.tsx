@@ -1,10 +1,18 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
 import LandingPage from "./pages/LandingPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
     <div className="container mx-auto">
-      <LandingPage></LandingPage>
+      {/* <LandingPage></LandingPage> */}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Routes>
     </div>
   );
 }
