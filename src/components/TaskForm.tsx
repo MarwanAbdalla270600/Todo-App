@@ -13,6 +13,7 @@ export default function TaskForm() {
         name: ref.current.value,
         status: TaskStatus.Todo,
       });
+      ref.current.value = ""; 
     }
   }
 
