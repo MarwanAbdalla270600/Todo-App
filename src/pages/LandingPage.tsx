@@ -1,7 +1,7 @@
 export default function LandingPage() {
   return (
-    <div className="flex h-screen flex-col justify-between py-12">
-      <header className="mx-auto flex w-7xl items-center justify-between">
+    <div className="flex min-h-screen flex-col justify-between gap-4 px-4 py-12">
+      <header className="mx-auto flex w-full max-w-7xl items-center justify-between">
         <div className="flex w-48 items-center gap-2">
           <div className="grid h-10 w-10 grid-cols-2 gap-1">
             <div className="rounded-full bg-gray-200" />
@@ -12,7 +12,7 @@ export default function LandingPage() {
           <h2 className="text-2xl">agenda</h2>
         </div>
 
-        <div className="flex gap-8">
+        <div className="hidden gap-8 md:flex">
           <a>How we work</a>
           <a>Pricing</a>
           <a>FAQ</a>
@@ -26,7 +26,7 @@ export default function LandingPage() {
       </header>
 
       <main className="mx-auto flex max-w-4xl flex-col gap-8">
-        <h1 className="text-center text-8xl font-semibold">
+        <h1 className="text-center text-6xl font-semibold md:text-8xl">
           your calendar as a service
         </h1>
         <p className="mx-auto max-w-96 text-center text-xl">
@@ -35,7 +35,7 @@ export default function LandingPage() {
         </p>
       </main>
 
-      <div className="flex w-full items-end justify-center gap-4">
+      <div className="flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:items-end">
         <div className="bg-neutral h-80 w-54 rounded-3xl"></div>
         <div
           className="h-52 w-54 rounded-3xl bg-cover bg-center"
