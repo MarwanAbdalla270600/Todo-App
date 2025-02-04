@@ -12,7 +12,7 @@ export default function RegisterPage() {
             <input
               type="text"
               placeholder="Enter your name"
-              className="input focus:outline-0"
+              className="input w-full focus:outline-0"
             />
           </fieldset>
 
@@ -21,7 +21,7 @@ export default function RegisterPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="input focus:outline-0"
+              className="input w-full focus:outline-0"
             />
           </fieldset>
 
@@ -30,7 +30,7 @@ export default function RegisterPage() {
             <input
               type="password"
               placeholder="Enter your password"
-              className="input focus:outline-0"
+              className="input w-full focus:outline-0"
             />
           </fieldset>
 
@@ -39,7 +39,7 @@ export default function RegisterPage() {
             <input
               type="password"
               placeholder="Enter your password"
-              className="input focus:outline-0"
+              className="input w-full focus:outline-0"
             />
           </fieldset>
         </div>

@@ -12,7 +12,7 @@ export default function LoginPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="input focus:outline-0"
+              className="input w-full focus:outline-0"
             />
           </fieldset>
 
@@ -21,7 +21,7 @@ export default function LoginPage() {
             <input
               type="password"
               placeholder="Enter your password"
-              className="input focus:outline-0"
+              className="input w-full focus:outline-0"
             />
           </fieldset>
         </div>
