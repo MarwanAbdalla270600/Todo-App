@@ -1,6 +1,6 @@
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col justify-between gap-4 px-4 py-12">
+    <div className="flex min-h-screen flex-col justify-between gap-12 px-4 py-12">
       <header className="mx-auto flex w-full max-w-7xl items-center justify-between">
         <div className="flex w-48 items-center gap-2">
           <div className="grid h-10 w-10 grid-cols-2 gap-1">
