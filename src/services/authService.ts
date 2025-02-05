@@ -8,13 +8,7 @@ import {
   User,
 } from "firebase/auth";
 import { auth, db } from "../config/firebase";
-
-interface UserData {
-  uid: string;
-  displayName: string;
-  email: string;
-  createdAt?: Date;
-}
+import { UserData } from "../models/userData-interface";
 
 export async function registerUser(
   email: string,
@@ -29,23 +23,21 @@ export async function registerUser(
     );
     const user = userCredential.user;
 
-    //update auth profile with name
     await updateProfile(user, { displayName: name });
 
     await setDoc(doc(db, "users", user.uid), {
       uid: user.uid,
-      name: name,
+      displayName: name,
       email: email,
       createdAt: new Date(),
     });
-    return user;
+    return user as UserData;
   } catch (error) {
     console.error("Registration Error:", error);
     throw error;
   }
 }
 
-//Login user
 export async function loginUser(email: string, password: string) {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -53,15 +45,14 @@ export async function loginUser(email: string, password: string) {
       email,
       password,
     );
-    
-    return userCredential.user;
+
+    return userCredential.user as UserData;
   } catch (error) {
     console.error("Login Error:", error);
     throw error;
   }
 }
 
-//Logout user
 export async function logoutUser() {
   try {
     await signOut(auth);
@@ -71,8 +62,7 @@ export async function logoutUser() {
   }
 }
 
-// ✅ Fetch user data from Firestore
-export const getUserData = async (uid: string): Promise<UserData | null> => {
+export async function getUserData(uid: string): Promise<UserData | null> {
   try {
     const userDoc = await getDoc(doc(db, "users", uid));
     return userDoc.exists() ? (userDoc.data() as UserData) : null;
@@ -80,9 +70,9 @@ export const getUserData = async (uid: string): Promise<UserData | null> => {
     console.error("Error fetching user data:", error);
     return null;
   }
-};
-// ✅ Initialize Firebase Authentication Listener (Now in Service)
-export const initAuthListener = (callback: (user: UserData | null) => void) => {
+}
+
+export function initAuthListener(callback: (user: UserData | null) => void) {
   onAuthStateChanged(auth, async (firebaseUser: User | null) => {
     if (firebaseUser) {
       const userData = await getUserData(firebaseUser.uid);
@@ -91,4 +81,4 @@ export const initAuthListener = (callback: (user: UserData | null) => void) => {
       callback(null);
     }
   });
-};
+}

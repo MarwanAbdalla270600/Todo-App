@@ -1,6 +1,8 @@
 import { FormEvent, useRef } from "react";
 import useAuthStore from "../store/authStore";
 import InputField from "../components/InputField";
+import { Link } from "react-router";
+import Logo from "../components/Logo";
 
 export default function RegisterPage() {
   const registerAuth = useAuthStore((state) => state.registerUser);
@@ -12,8 +14,6 @@ export default function RegisterPage() {
   function register(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    console.log(nameRef.current?.value);
-
     registerAuth(
       emailRef.current?.value!,
       passwordRef.current?.value!,
@@ -24,6 +24,9 @@ export default function RegisterPage() {
   return (
     <div className="flex h-screen w-full items-center justify-center">
       <form onSubmit={register} className="flex flex-col items-center gap-4">
+        <Link to="/">
+          <Logo />
+        </Link>
         <h1 className="text-4xl font-semibold">Create Your Account</h1>
         <span className="text-gray-400">
           Welcome back! Please enter your details
@@ -65,7 +68,10 @@ export default function RegisterPage() {
           Sign Up
         </button>
         <div className="text-xs">
-          Already have an account? <b className="cursor-pointer">Sign in</b>
+          Already have an account?
+          <Link to="/login">
+            <b className="mx-2 cursor-pointer">Sign in</b>
+          </Link>
         </div>
       </form>
     </div>

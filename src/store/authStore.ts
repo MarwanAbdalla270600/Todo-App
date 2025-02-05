@@ -5,13 +5,7 @@ import {
   logoutUser,
   registerUser,
 } from "../services/authService";
-
-interface UserData {
-  uid: string;
-  displayName: string;
-  email: string;
-  createdAt?: Date;
-}
+import { UserData } from "../models/userData-interface";
 
 interface AuthState {
   user: UserData | null;
@@ -34,11 +28,7 @@ const useAuthStore = create<AuthState>((set) => ({
   registerUser: async (email, password, name) => {
     const user = await registerUser(email, password, name);
     set({
-      user: {
-        uid: user.uid,
-        displayName: user.displayName!,
-        email: user.email!,
-      },
+      user: user,
     });
   },
 
@@ -47,11 +37,7 @@ const useAuthStore = create<AuthState>((set) => ({
     const user = await loginUser(email, password);
     console.log(user);
     set({
-      user: {
-        uid: user.uid,
-        displayName: user.displayName!,
-        email: user.email!,
-      },
+      user: user,
     });
   },
 

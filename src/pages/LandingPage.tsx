@@ -1,16 +1,12 @@
 import { Link } from "react-router";
+import Logo from "../components/Logo";
 
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col justify-between gap-12 px-4 py-12">
       <header className="mx-auto flex w-full max-w-7xl items-center justify-between">
         <div className="flex w-48 items-center gap-2">
-          <div className="grid h-10 w-10 grid-cols-2 gap-1">
-            <div className="rounded-full bg-gray-200" />
-            <div className="rounded-full bg-gray-900" />
-            <div className="rounded-full bg-gray-900" />
-            <div className="rounded-full bg-gray-900" />
-          </div>
+          <Logo></Logo>
           <h2 className="text-2xl">agenda</h2>
         </div>
 

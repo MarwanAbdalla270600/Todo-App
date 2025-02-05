@@ -1,6 +1,8 @@
 import { FormEvent, useRef } from "react";
 import InputField from "../components/InputField";
 import useAuthStore from "../store/authStore";
+import { Link } from "react-router";
+import Logo from "../components/Logo";
 
 export default function LoginPage() {
   const loginAuth = useAuthStore((state) => state.loginUser);
@@ -16,6 +18,9 @@ export default function LoginPage() {
   return (
     <div className="flex h-screen w-full items-center justify-center">
       <form onSubmit={login} className="flex flex-col items-center gap-4">
+        <Link to="/">
+          <Logo />
+        </Link>
         <h1 className="text-4xl font-semibold">Login right here</h1>
         <span className="text-gray-400">
           Welcome back! Please enter your details
@@ -39,6 +44,12 @@ export default function LoginPage() {
         <button type="submit" className="btn btn-neutral w-full shadow-none">
           Sign In
         </button>
+        <div className="text-xs">
+          Don't have an account?
+          <Link to="/register">
+            <b className="mx-2 cursor-pointer">Sign up</b>
+          </Link>
+        </div>
       </form>
     </div>
   );
