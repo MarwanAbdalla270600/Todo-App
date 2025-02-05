@@ -45,6 +45,7 @@ const useAuthStore = create<AuthState>((set) => ({
   // ✅ Login User
   loginUser: async (email, password) => {
     const user = await loginUser(email, password);
+    console.log(user);
     set({
       user: {
         uid: user.uid,

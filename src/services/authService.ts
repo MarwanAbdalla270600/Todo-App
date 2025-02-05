@@ -53,6 +53,7 @@ export async function loginUser(email: string, password: string) {
       email,
       password,
     );
+    
     return userCredential.user;
   } catch (error) {
     console.error("Login Error:", error);
