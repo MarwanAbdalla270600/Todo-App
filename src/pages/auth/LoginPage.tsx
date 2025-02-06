@@ -1,24 +1,33 @@
-import { FormEvent, useRef } from "react";
 import { Link } from "react-router";
+import { SubmitHandler, useForm } from "react-hook-form";
+import useAuthStore from "../../store/authStore";
 import InputField from "../../components/shared/InputField";
 import Logo from "../../components/shared/Logo";
-import useAuthStore from "../../store/authStore";
 
+type FormFields = {
+  email: string;
+  password: string;
+};
 
 export default function LoginPage() {
   const loginAuth = useAuthStore((state) => state.loginUser);
 
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>();
 
-  function login(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    loginAuth(emailRef.current?.value!, passwordRef.current?.value!);
-  }
+  const onSubmit: SubmitHandler<FormFields> = (data) => {
+    loginAuth(data.email, data.password);
+  };
 
   return (
     <div className="flex h-screen w-full items-center justify-center">
-      <form onSubmit={login} className="flex flex-col items-center gap-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col items-center gap-4"
+      >
         <Link to="/">
           <Logo />
         </Link>
@@ -26,25 +35,41 @@ export default function LoginPage() {
         <span className="text-gray-400">
           Welcome back! Please enter your details
         </span>
+
         <div className="flex w-full flex-col">
           <InputField
-            ref={emailRef}
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Invalid email format",
+              },
+            })}
+            error={errors.email}
             label="Email"
             placeholder="Enter your email"
             type="email"
-          ></InputField>
+          />
 
           <InputField
-            ref={passwordRef}
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters",
+              },
+            })}
+            error={errors.password}
             label="Password"
             placeholder="Enter your password"
             type="password"
-          ></InputField>
+          />
         </div>
 
         <button type="submit" className="btn btn-neutral w-full shadow-none">
           Sign In
         </button>
+
         <div className="text-xs">
           Don't have an account?
           <Link to="/register">

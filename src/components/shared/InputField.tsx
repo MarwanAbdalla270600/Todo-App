@@ -1,22 +1,18 @@
-import { Ref } from "react";
+import { Ref, InputHTMLAttributes } from "react";
+import { FieldError } from "react-hook-form";
 
-interface Props {
-  ref?: Ref<HTMLInputElement>;
-  placeholder?: string;
-  type?: string;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  ref?: Ref<HTMLInputElement>;
+  error?: FieldError | null;
 }
 
-export default function InputField({ placeholder, ref, type, label }: Props) {
+export default function InputField({ label, ref, error, ...props }: Props) {
   return (
     <fieldset className="fieldset">
-      <legend className="fieldset-legend">{label}</legend>
-      <input
-        ref={ref}
-        type={type}
-        placeholder={placeholder}
-        className="input w-full focus:outline-0"
-      />
+      {label && <legend className="fieldset-legend">{label}</legend>}
+      <input ref={ref} {...props} className="input w-full focus:outline-0" />
+      {error && <p className="text-red-500">{error.message}</p>}
     </fieldset>
   );
 }
