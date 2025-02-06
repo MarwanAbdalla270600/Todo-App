@@ -2,8 +2,8 @@ import { Navigate, Route, Routes } from "react-router";
 import useAuthStore from "../store/authStore";
 import DashboardPage from "../pages/DashboardPage";
 import LandingPage from "../pages/LandingPage";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
+import RegisterPage from "../pages/auth/RegisterPage";
+import LoginPage from "../pages/auth/LoginPage";
 
 export default function AuthRoutes() {
   const { user } = useAuthStore();

@@ -1,8 +1,9 @@
 import { FormEvent, useRef } from "react";
-import InputField from "../components/shared/InputField";
-import useAuthStore from "../store/authStore";
 import { Link } from "react-router";
-import Logo from "../components/shared/Logo";
+import InputField from "../../components/shared/InputField";
+import Logo from "../../components/shared/Logo";
+import useAuthStore from "../../store/authStore";
+
 
 export default function LoginPage() {
   const loginAuth = useAuthStore((state) => state.loginUser);
