@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import Logo from "../components/Logo";
-import BlackDummySlot from "../components/BlackDummySlot";
-import PurpleDummySlot from "../components/PurpleDummySlot";
-import PhoneDummySlot from "../components/PhoneDummySlot";
+import Logo from "../components/shared/Logo";
+import BlackDummySlot from "../components/dummy/BlackDummySlot";
+import PurpleDummySlot from "../components/dummy/PurpleDummySlot";
+import PhoneDummySlot from "../components/dummy/PhoneDummySlot";
 
 export default function LandingPage() {
   return (
@@ -41,7 +41,7 @@ export default function LandingPage() {
         </p>
       </main>
 
-      <div className="flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:items-end">
+      <div className="flex w-full flex-col items-center justify-center gap-4 xl:flex-row xl:items-end">
         <BlackDummySlot />
         <div
           className="h-52 w-54 rounded-3xl bg-cover bg-center"
@@ -49,8 +49,8 @@ export default function LandingPage() {
             backgroundImage: "url(images/landing-page/men.jpg)",
           }}
         ></div>
-        <div className="flex h-80 w-54 flex-col items-center justify-between rounded-3xl">
-          <div className="bg-base-300 flex w-40 flex-col items-center justify-center gap-1 rounded-xl p-2">
+        <div className="flex w-54 flex-col items-center justify-between rounded-3xl xl:h-80">
+          <div className="bg-base-300 hidden w-40 flex-col items-center justify-center gap-1 rounded-xl p-2 xl:flex">
             <Link to="/register">
               <button className="btn btn-neutral w-34 rounded-lg shadow-none">
                 Try it now

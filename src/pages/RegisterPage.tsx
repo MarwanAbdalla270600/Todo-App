@@ -1,8 +1,8 @@
 import { FormEvent, useRef } from "react";
 import useAuthStore from "../store/authStore";
-import InputField from "../components/InputField";
+import InputField from "../components/shared/InputField";
 import { Link } from "react-router";
-import Logo from "../components/Logo";
+import Logo from "../components/shared/Logo";
 
 export default function RegisterPage() {
   const registerAuth = useAuthStore((state) => state.registerUser);
