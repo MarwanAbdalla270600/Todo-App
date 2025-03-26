@@ -27,7 +27,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <div className="container mx-auto flex h-screen w-full items-center justify-center">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center gap-4"

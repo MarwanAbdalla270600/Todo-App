@@ -4,6 +4,7 @@ import DashboardPage from "../pages/DashboardPage";
 import LandingPage from "../pages/LandingPage";
 import RegisterPage from "../pages/auth/RegisterPage";
 import LoginPage from "../pages/auth/LoginPage";
+import CoursePage from "../pages/CoursePage";
 
 export default function AuthRoutes() {
   const { user } = useAuthStore();
@@ -15,6 +16,7 @@ export default function AuthRoutes() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/courses" element={<CoursePage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </>
       ) : (

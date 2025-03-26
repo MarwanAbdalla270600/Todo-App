@@ -15,7 +15,7 @@ function App() {
   }, [initAuth]);
 
   return (
-    <div className="container mx-auto">
+    <div>
       <AuthRoutes />
     </div>
   );
