@@ -1,14 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/shared/Header";
 import CourseCard from "../components/shared/CourseCard";
 import { useCourseStore } from "../store/courseStore";
+import { Course } from "../models/course-interface";
 
 export default function CoursePage() {
   const { allCourses, loadAllCourses } = useCourseStore();
+  const [filteredCourses, setFilteredCourses] = useState<Course[]>([]);
 
   useEffect(() => {
     loadAllCourses(); // ⬅️ Fetch once when this page loads
   }, []);
+
+  // ✅ Set filteredCourses when courses are loaded
+  useEffect(() => {
+    setFilteredCourses(allCourses);
+  }, [allCourses]);
+
+  // ✅ Filter logic
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value.toLowerCase();
+    const filtered = allCourses.filter((course) =>
+      course.title.toLowerCase().includes(query.toLowerCase()),
+    );
+    setFilteredCourses(filtered);
+  };
 
   return (
     <div className="container mx-auto flex flex-col items-center gap-12 px-4 py-12">
@@ -19,8 +35,13 @@ export default function CoursePage() {
           From zero to job-ready with real-world challenges.
         </h2>
       </div>
+      <input
+        placeholder="Search..."
+        onChange={handleSearch}
+        className="input w-full max-w-md rounded border border-gray-300 px-4 py-2 focus:outline-none"
+      />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {allCourses.map((course) => (
+        {filteredCourses.map((course) => (
           <CourseCard key={course.id} course={course} />
         ))}
       </div>{" "}
