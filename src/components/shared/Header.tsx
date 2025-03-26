@@ -11,7 +11,7 @@ export default function Header() {
       </div>
 
       <div className="hidden gap-8 md:flex">
-        <a>How we work</a>
+        <Link to="/">How we work</Link>
         <Link to="/courses">Courses</Link>
         <a>FAQ</a>
         <a>Resources</a>
