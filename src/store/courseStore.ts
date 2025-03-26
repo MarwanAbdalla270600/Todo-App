@@ -6,7 +6,7 @@ interface CourseStore {
   allCourses: Course[];
   userCourses: Course[];
   loadAllCourses: () => Promise<void>;
-  loadUserCourses: (uid: string) => Promise<void>;
+  //loadUserCourses: (uid: string) => Promise<void>;
 }
 
 export const useCourseStore = create<CourseStore>((set) => ({
@@ -17,6 +17,5 @@ export const useCourseStore = create<CourseStore>((set) => ({
     const data = await getAllCourses();
     set({ allCourses: data });
   },
-
-  loadUserCourses: async (uid: string) => {},
+  //loadUserCourses: async (uid: string) => {},
 }));
