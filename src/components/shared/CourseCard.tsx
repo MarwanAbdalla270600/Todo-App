@@ -9,7 +9,15 @@ export default function CourseCard({ course }: { course: Course }) {
         alt={course.title}
         className="mb-4 max-h-48 w-full rounded-lg object-cover"
       />
-      <div className="flex h-fit flex-1 flex-col justify-between p-4 gap-2">
+      <div className="px-3">
+        {course.tags?.map((tag) => (
+          <div key={tag} className="bg-base-300 w-fit rounded-md px-2 py-1">
+            {tag}
+          </div>
+        ))}
+      </div>
+
+      <div className="flex h-fit flex-1 flex-col justify-between gap-2 p-4">
         <div>
           <h2 className="text-xl font-semibold">{course.title}</h2>
           <p className="mb-2 text-sm text-gray-600">{course.description}</p>
