@@ -2,7 +2,7 @@ import { Course } from "../../models/course-interface";
 
 export default function CourseCard({ course }: { course: Course }) {
   return (
-    <div className="w-full max-w-sm rounded-xl bg-white p-4 shadow-md">
+    <div className="bg-base-200 w-full max-w-sm cursor-pointer rounded-xl p-4 shadow-md">
       <img
         src={course.imageUrl}
         alt={course.title}

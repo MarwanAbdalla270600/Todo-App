@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
-import { getAllCourses } from "../services/courseService";
+import { useEffect } from "react";
 import Header from "../components/shared/Header";
-import { Course } from "../models/course-interface";
 import CourseCard from "../components/shared/CourseCard";
+import { useCourseStore } from "../store/courseStore";
 
 export default function CoursePage() {
-  const [courses, setCourses] = useState<Course[]>([]); // 👈 initialize
-
-  function loadCourses() {
-    getAllCourses()
-      .then((data) => {
-        setCourses(data); // 👈 set the data
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Failed to load courses:", error);
-      });
-  }
+  const { allCourses, loadAllCourses } = useCourseStore();
 
   useEffect(() => {
-    loadCourses();
+    loadAllCourses(); // ⬅️ Fetch once when this page loads
   }, []);
 
   return (
@@ -32,7 +20,7 @@ export default function CoursePage() {
         </h2>
       </div>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {courses.map((course) => (
+        {allCourses.map((course) => (
           <CourseCard key={course.id} course={course} />
         ))}
       </div>{" "}
