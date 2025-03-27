@@ -43,7 +43,11 @@ export default function CoursePage() {
       />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredCourses.map((course) => (
-          <Link to={`/courses/${course.slug}`} key={course.id}>
+          <Link
+            className="block h-full"
+            to={`/courses/${course.slug}`}
+            key={course.id}
+          >
             <CourseCard key={course.id} course={course} />
           </Link>
         ))}

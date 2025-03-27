@@ -2,30 +2,39 @@ import { Course } from "../../models/course-interface";
 
 export default function CourseCard({ course }: { course: Course }) {
   return (
-    <div className="bg-base-200 flex w-full max-w-sm cursor-pointer flex-col rounded-xl shadow-md">
+    <div className="bg-base-200 flex h-full flex-col overflow-hidden rounded-xl shadow-md">
       <img
         src="images/course-fallback.jpg"
         loading="lazy"
         alt={course.title}
-        className="mb-4 max-h-48 w-full rounded-lg object-cover"
+        className="h-60 w-full object-cover"
       />
-      <div className="px-4">
-        {course.tags?.map((tag) => (
-          <div key={tag} className="bg-base-300 w-fit rounded-md px-2 py-1">
-            {tag}
-          </div>
-        ))}
-      </div>
 
-      <div className="flex h-fit flex-1 flex-col justify-between gap-2 p-4">
-        <div>
-          <h2 className="text-xl font-semibold">{course.title}</h2>
-          <p className="mb-2 text-sm text-gray-600">{course.description}</p>
+      <div className="flex flex-1 flex-col justify-between p-4">
+        {/* Tags */}
+        <div className="mb-2 flex flex-wrap gap-2">
+          {course.tags?.map((tag) => (
+            <span
+              key={tag}
+              className="bg-base-300 rounded-md px-2 py-1 text-xs font-medium"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
 
-        <div>
+        {/* Title & Description */}
+        <div className="flex-grow">
+          <h2 className="text-lg font-semibold">{course.title}</h2>
+          <p className="mt-1 line-clamp-3 text-sm text-gray-600">
+            {course.description}
+          </p>
+        </div>
+
+        {/* Footer Info */}
+        <div className="mt-4">
           <p className="text-sm text-gray-500">By {course.instructor}</p>
-          <div className="font-bold">
+          <div className="text-sm font-bold">
             {course.price === 0 ? "Free" : `${course.price} €`}
           </div>
         </div>
