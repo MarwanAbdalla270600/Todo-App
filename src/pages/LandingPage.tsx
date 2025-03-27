@@ -6,7 +6,7 @@ import Header from "../components/shared/Header";
 
 export default function LandingPage() {
   return (
-    <div className="container mx-auto flex min-h-screen flex-col justify-between gap-12 px-4 py-12">
+    <div className="max-w-7xl mx-auto flex min-h-screen flex-col justify-between gap-12 px-4 py-8">
       <Header></Header>
 
       <main className="mx-auto flex max-w-4xl flex-col gap-8">
