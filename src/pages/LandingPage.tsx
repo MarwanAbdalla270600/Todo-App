@@ -2,14 +2,11 @@ import { Link } from "react-router";
 import BlackDummySlot from "../components/dummy/BlackDummySlot";
 import PurpleDummySlot from "../components/dummy/PurpleDummySlot";
 import PhoneDummySlot from "../components/dummy/PhoneDummySlot";
-import Header from "../components/shared/Header";
 
 export default function LandingPage() {
   return (
-    <div className="max-w-7xl mx-auto flex min-h-screen flex-col justify-between gap-12 px-4 py-8">
-      <Header></Header>
-
-      <main className="mx-auto flex max-w-4xl flex-col gap-8">
+    <div className="mx-auto flex flex-col gap-12 p-4">
+      <main className="mx-auto flex flex-col gap-8">
         <h1 className="text-center text-4xl font-semibold md:text-7xl">
           Unlock Your Potential Learn Without Limits
         </h1>

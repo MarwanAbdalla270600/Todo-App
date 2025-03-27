@@ -28,9 +28,8 @@ export default function CoursePage() {
   };
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 py-8">
-      <Header></Header>
-      <div className="flex max-w-5xl flex-col items-center gap-6">
+    <div className="mx-auto flex flex-col items-center gap-12 p-4">
+      <div className="flex flex-col items-center gap-6">
         <h1 className="text-4xl font-semibold">Build Real-World Skills</h1>
         <h2 className="text-2xl">
           From zero to job-ready with real-world challenges.
