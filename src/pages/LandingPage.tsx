@@ -38,7 +38,7 @@ export default function LandingPage() {
             <span className="text-center text-sm">free for personal use</span>
           </div>
           <div className="bg-secondary flex w-54 justify-center rounded-3xl px-4 py-8">
-            <p className="w-fit text-2xl font-semibold">
+            <p className="w-fit text-2xl font-semibold text-black">
               Always know <br />
               what your <br />
               team is up to

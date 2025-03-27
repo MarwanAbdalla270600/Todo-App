@@ -23,25 +23,23 @@ export default function CourseDetailsPage() {
   return (
     <div className="container mx-auto flex flex-col gap-12 px-4 py-12">
       <Header></Header>
-      <h1 className="text-3xl font-bold">{course.title}</h1>
-      <p className="text-lg text-gray-600">{course.subtitle}</p>
-      <p className="mt-4">{course.description}</p>
-      <div className="mt-6">
-        <p>
-          <strong>Instructor:</strong> {course.instructor}
-        </p>
-        <p>
-          <strong>Level:</strong> {course.level}
-        </p>
-        <p>
-          <strong>Price:</strong> €{course.price}
-        </p>
-        <p>
-          <strong>Duration:</strong> {course.duration} hours
-        </p>
-        <p>
-          <strong>Lessons:</strong> {course.lessons}
-        </p>
+      <div className="mx-auto w-5xl">
+        <div className="flex flex-wrap py-12">
+          <div className="flex w-1/2 flex-col gap-6">
+            <h3 className="text-xl text-primary">A Course You'll Actually Finish</h3>
+            <h1 className="text-5xl font-semibold">{course.title}</h1>
+            <h2 className="text-2xl">{course.description}</h2>
+            <div className="flex gap-4">
+              <button className="btn btn-primary rounded-4xl text-xl py-6 text-black">
+                Enroll Now
+              </button>
+              <button className="btn btn-secondary rounded-4xl text-xl py-6 text-black">
+                Preview Course
+              </button>
+            </div>
+          </div>
+          <div className="w-1/2"></div>
+        </div>
       </div>
     </div>
   );

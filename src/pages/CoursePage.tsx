@@ -39,7 +39,7 @@ export default function CoursePage() {
       <input
         placeholder="Search..."
         onChange={handleSearch}
-        className="input w-full max-w-md rounded border border-gray-300 px-4 py-2 focus:outline-none"
+        className="input w-full max-w-md rounded-3xl border border-gray-300 px-4 py-2 focus:outline-none"
       />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredCourses.map((course) => (
