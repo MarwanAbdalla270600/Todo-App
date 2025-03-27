@@ -13,8 +13,8 @@ export default function Header() {
       <div className="hidden gap-8 md:flex">
         <Link to="/">How we work</Link>
         <Link to="/courses">Courses</Link>
-        <a>FAQ</a>
-        <a>Resources</a>
+        <a>Membership</a>
+        <a>Contact</a>
       </div>
 
       <div className="flex w-60 justify-end gap-4">

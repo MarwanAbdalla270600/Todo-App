@@ -9,7 +9,7 @@ export default function CourseCard({ course }: { course: Course }) {
         alt={course.title}
         className="mb-4 max-h-48 w-full rounded-lg object-cover"
       />
-      <div className="px-3">
+      <div className="px-4">
         {course.tags?.map((tag) => (
           <div key={tag} className="bg-base-300 w-fit rounded-md px-2 py-1">
             {tag}

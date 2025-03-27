@@ -3,13 +3,14 @@ import Header from "../components/shared/Header";
 import CourseCard from "../components/shared/CourseCard";
 import { useCourseStore } from "../store/courseStore";
 import { Course } from "../models/course-interface";
+import { Link } from "react-router";
 
 export default function CoursePage() {
   const { allCourses, loadAllCourses } = useCourseStore();
   const [filteredCourses, setFilteredCourses] = useState<Course[]>([]);
 
   useEffect(() => {
-    loadAllCourses(); // ⬅️ Fetch once when this page loads
+    loadAllCourses(); // will skip internally if already loaded
   }, []);
 
   // ✅ Set filteredCourses when courses are loaded
@@ -42,7 +43,9 @@ export default function CoursePage() {
       />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredCourses.map((course) => (
-          <CourseCard key={course.id} course={course} />
+          <Link to={`/courses/${course.slug}`} key={course.id}>
+            <CourseCard key={course.id} course={course} />
+          </Link>
         ))}
       </div>{" "}
     </div>
