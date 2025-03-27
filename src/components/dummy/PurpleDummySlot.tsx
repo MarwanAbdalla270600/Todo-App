@@ -1,6 +1,6 @@
 export default function PurpleDummySlot() {
   return (
-    <div className="bg-primary flex h-52 w-54 flex-col justify-center gap-1 rounded-3xl p-3 text-xs">
+    <div className="bg-primary flex h-52 w-54 flex-col justify-center gap-1 rounded-3xl p-3 text-xs text-black">
       <div className="flex items-center gap-2">
         <div className="w-fit rounded-full bg-white p-1">
           <img

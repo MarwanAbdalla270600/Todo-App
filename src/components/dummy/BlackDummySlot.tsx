@@ -20,21 +20,31 @@ export default function BlackDummySlot() {
       <div className="mb-3 flex w-full items-center gap-2">
         <span>10:00</span>
         <div className="bg-secondary flex flex-1 items-center gap-2 rounded-xl p-2 text-neutral-800">
-          <input type="checkbox" defaultChecked className="checkbox h-5 w-5" />
+          <input
+            type="checkbox"
+            defaultChecked
+            className="checkbox h-5 w-5 border-gray-400 text-black"
+          />
           <span>10:00 - 11:00</span>
         </div>
       </div>
       <div className="mb-3 flex w-full items-center gap-2">
         <span>11:00</span>
         <div className="bg-secondary flex flex-1 items-center gap-2 rounded-xl p-2 text-neutral-800">
-          <input type="checkbox" className="checkbox h-5 w-5" />
+          <input
+            type="checkbox"
+            className="checkbox h-5 w-5 border-gray-400 text-black"
+          />
           <span>11:00 - 12:00</span>
         </div>
       </div>
       <div className="flex w-full items-center gap-2">
         <span>12:00</span>
         <div className="bg-secondary flex flex-1 items-center gap-2 rounded-xl p-2 text-neutral-800">
-          <input type="checkbox" className="checkbox h-5 w-5" />
+          <input
+            type="checkbox"
+            className="checkbox h-5 w-5 border-gray-400 text-black"
+          />
           <span>12:00 - 13:00</span>
         </div>
       </div>
