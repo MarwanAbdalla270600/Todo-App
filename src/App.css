@@ -17,4 +17,8 @@
 
   --color-primary: #C8A2D6;
   --color-secondary: #CFDDDB;
+  --color-base-100: #121212; /* ← darker background */
+  --color-base-200: #1A1A1A;
+  --color-base-300: #2A2A2A;
+
 }

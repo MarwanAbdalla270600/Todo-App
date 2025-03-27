@@ -28,7 +28,7 @@ export default function CoursePage() {
   };
 
   return (
-    <div className="container mx-auto flex flex-col items-center gap-12 px-4 py-12">
+    <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 py-12">
       <Header></Header>
       <div className="flex flex-col items-center gap-6">
         <h1 className="text-4xl font-semibold">Build Real-World Skills</h1>
@@ -41,7 +41,7 @@ export default function CoursePage() {
         onChange={handleSearch}
         className="input w-full max-w-md rounded-3xl border border-gray-300 px-4 py-2 focus:outline-none"
       />
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {filteredCourses.map((course) => (
           <Link
             className="block h-full"
