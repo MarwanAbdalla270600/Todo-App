@@ -27,13 +27,12 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-12">
-      <h1 className="text-5xl font-semibold">Contact</h1>
-      <h2 className="text-base-content text-center text-2xl">
-        We're here for you: Connect with us for any questions or concerns
-      </h2>
-
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-4 w-full space-y-4">
+    <section className="mx-auto flex h-full max-w-3xl flex-1 flex-col items-center justify-center gap-6 px-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4 p-8 rounded-md">
+        <h1 className="text-5xl font-semibold text-center">Contact</h1>
+        <h2 className="text-base-content text-center text-2xl">
+          We're here for you: Connect with us for any questions or concerns
+        </h2>
         <InputField
           {...register("name", { required: "Name is required" })}
           error={errors.name}
@@ -60,7 +59,7 @@ export default function ContactPage() {
 
         <button
           type="submit"
-          className="btn btn-primary w-full text-black"
+          className="btn btn-primary rounded-4xl py-6 text-xl text-black"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending..." : "Send"}
