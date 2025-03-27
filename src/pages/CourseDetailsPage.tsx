@@ -22,9 +22,8 @@ export default function CourseDetailsPage() {
   if (!course) return <div>Loading course...</div>;
 
   return (
-    <div className="container mx-auto flex flex-col gap-12 px-4 py-12">
-      <Header></Header>
-      <div className="mx-auto w-5xl">
+    <div className="flex flex-col gap-12 px-4 py-12">
+      <div className="mx-auto max-w-5xl">
         <div className="flex flex-wrap justify-between py-12 items-center">
           <div className="flex max-w-1/2 flex-col gap-6 h-fit">
             <h3 className="text-primary text-xl">

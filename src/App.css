@@ -10,11 +10,7 @@
   
     --color-primary: #C8A2D6;
     --color-secondary: #CFDDDB;
-  
-    /* 🌤 Softer, warmer background palette */
-    --color-base-100: #eeeeee; /* lighter than gray-200 */
-  --color-base-200: #e0e0e0;
-  --color-base-300: #cccccc;
+
   }
 
 @plugin "daisyui/theme" {
