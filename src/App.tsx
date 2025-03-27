@@ -3,10 +3,14 @@ import Header from "./components/shared/Header";
 import AuthRoutes from "./routes/authRoutes";
 import useAuthStore from "./store/authStore";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const initAuth = useAuthStore((state) => state.initAuth);
   const { loading } = useAuthStore();
+  const location = useLocation();
+
+  const hideHeader = ["/login", "/register"].includes(location.pathname);
 
   // Show a loading state while Firebase checks authentication
   if (loading) return <p>Loading...</p>;
@@ -17,8 +21,8 @@ function App() {
 
   return (
     <div>
-      <Header></Header>
-      <div className="pt-20 max-w-7xl px-4 mx-auto">
+      {!hideHeader && <Header />}{" "}
+      <div className={`mx-auto max-w-7xl px-4 ${!hideHeader ? "pt-20" : ""}`}>
         <AuthRoutes />
       </div>
     </div>

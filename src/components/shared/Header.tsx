@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="bg-base-200/50 fixed z-50 w-full backdrop-blur-md">
+    <header className="bg-base-100/50 fixed z-50 w-full backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
         <div className="flex w-60 items-center gap-2">
           <Logo></Logo>
@@ -15,7 +15,7 @@ export default function Header() {
           <Link to="/">How we work</Link>
           <Link to="/courses">Courses</Link>
           <a>Membership</a>
-          <a>Contact</a>
+          <Link to="/contact">Contact</Link>
         </div>
 
         <div className="flex w-60 justify-end gap-4">
