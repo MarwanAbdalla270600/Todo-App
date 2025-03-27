@@ -21,7 +21,7 @@ export default function CourseDetailsPage() {
   if (!course) return <div>Loading course...</div>;
 
   return (
-    <div className="p-6">
+    <div className="container mx-auto flex flex-col gap-12 px-4 py-12">
       <Header></Header>
       <h1 className="text-3xl font-bold">{course.title}</h1>
       <p className="text-lg text-gray-600">{course.subtitle}</p>
