@@ -20,7 +20,10 @@ export default function LandingPage() {
       >
         <div className="flex flex-col gap-8 lg:max-w-1/2">
           {/* h1 zoom in */}
-          <motion.h1 variants={zoomIn} className="text-7xl font-semibold">
+          <motion.h1
+            variants={zoomIn}
+            className="text-5xl font-semibold md:text-7xl"
+          >
             <span className="text-primary">Unlock</span> Your Potential
             <br />
             Learn Without Limits
@@ -33,7 +36,10 @@ export default function LandingPage() {
           </motion.p>
 
           {/* buttons fade in */}
-          <motion.div variants={fadeIn} className="flex gap-4">
+          <motion.div
+            variants={fadeIn}
+            className="flex flex-col items-start gap-4 sm:flex-row"
+          >
             <Link
               to="/register"
               className="btn btn-primary rounded-4xl py-6 text-xl text-black"
