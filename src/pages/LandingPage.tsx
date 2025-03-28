@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 
 import { Link } from "react-router";
+import FeatureCard from "../components/shared/FeatureCard";
+import { features } from "../data/feature-list";
 
 export default function LandingPage() {
   const container = {
@@ -31,7 +33,7 @@ export default function LandingPage() {
   };
 
   return (
-    <main className="flex flex-col gap-8">
+    <main className="flex flex-col gap-8 px-4">
       <motion.section
         variants={container}
         initial="hidden"
@@ -71,11 +73,11 @@ export default function LandingPage() {
 
         {/* image zooms in */}
         <motion.figure variants={zoomIn} className="max-w-1/2">
-          <img src="images/landing-page/hero.svg" />
+          <img src="images/landing-page/video.png" />
         </motion.figure>
       </motion.section>
 
-      <section className="bg-base-200 w-full py-20">
+      <section className="bg-base-200 w-full py-20 px-4">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6">
           <p className="text-primary text-xl">Hello,</p>
           <h2 className="text-4xl font-semibold">I am Ahmed Adel</h2>
@@ -91,6 +93,29 @@ export default function LandingPage() {
             <source src="videos/introduction.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="mx-auto flex max-w-5xl flex-col gap-20">
+          <div>
+            <h3 className="text-primary text-center text-xl">
+              Why You'll Love Learning Here
+            </h3>
+            <h2 className="text-center text-4xl font-semibold">
+              Quality, Structure, and Real Results
+            </h2>
+          </div>
+
+          {features.map((feature) => (
+            <FeatureCard
+              title={feature.title}
+              subtitle={feature.subtitle}
+              description={feature.description}
+              imageUrl={feature.imageUrl}
+              reversed={feature.reversed}
+            />
+          ))}
         </div>
       </section>
     </main>
