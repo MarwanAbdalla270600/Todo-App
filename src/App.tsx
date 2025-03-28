@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/shared/Footer";
 import Header from "./components/shared/Header";
 import AuthRoutes from "./routes/authRoutes";
 import useAuthStore from "./store/authStore";
@@ -25,6 +26,8 @@ function App() {
       <div className={`${!hideHeader ? "pt-20" : ""}`}>
         <AuthRoutes />
       </div>
+      {!hideHeader && <Footer />}{" "}
+
     </div>
   );
 }

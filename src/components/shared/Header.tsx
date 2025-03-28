@@ -8,7 +8,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
         <div className="flex w-60 items-center gap-2">
           <Logo></Logo>
-          <h2 className="text-2xl">LEARNHUB</h2>
+          <h2 className="text-2xl">Learnhub</h2>
         </div>
 
         <div className="hidden gap-8 md:flex">
