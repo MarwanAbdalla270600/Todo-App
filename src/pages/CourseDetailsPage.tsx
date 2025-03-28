@@ -2,7 +2,6 @@ import { useParams } from "react-router";
 import { Course } from "../models/course-interface";
 import { useCourseStore } from "../store/courseStore";
 import { useEffect, useState } from "react";
-import Header from "../components/shared/Header";
 import CourseDetailsCard from "../components/shared/CourseDetailsCard";
 
 export default function CourseDetailsPage() {

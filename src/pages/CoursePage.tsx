@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Header from "../components/shared/Header";
 import CourseCard from "../components/shared/CourseCard";
 import { useCourseStore } from "../store/courseStore";
 import { Course } from "../models/course-interface";
