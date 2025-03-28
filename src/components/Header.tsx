@@ -1,8 +1,11 @@
 import { Link } from "react-router";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
+import useAuthStore from "../store/authStore";
 
 export default function Header() {
+  const { user, logoutUser } = useAuthStore();
+
   return (
     <header className="bg-base-100/50 fixed z-50 w-full backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
@@ -21,13 +24,32 @@ export default function Header() {
         <div className="flex w-60 justify-end gap-4">
           <ThemeToggle></ThemeToggle>
 
-          <Link to="/login">
-            <button className="btn btn-ghost rounded-lg">Log In</button>
-          </Link>
+          {user == null ? (
+            <>
+              <Link to="/login">
+                <button className="btn btn-ghost rounded-lg">Log In</button>
+              </Link>
 
-          <Link to="/register">
-            <button className="btn btn-outline rounded-lg">Sign Up</button>
-          </Link>
+              <Link to="/register">
+                <button className="btn btn-outline rounded-lg">Sign Up</button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <div className="dropdown dropdown-end cursor-pointer">
+                <div tabIndex={0} role="button" className="m-1">
+                  {user.displayName}
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-base-100 rounded-box z-1 flex w-52 flex-col gap-2 border-[1px] border-gray-500 p-2 shadow-sm"
+                >
+                  <li>Edit Profile</li>
+                  <li onClick={logoutUser}>Log out</li>
+                </ul>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </header>
