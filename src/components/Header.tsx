@@ -11,7 +11,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
         <div className="flex w-60 items-center gap-2">
           <Logo></Logo>
-          <h2 className="text-2xl">Learnhub</h2>
+          <h2 className="hidden text-2xl sm:visible">Learnhub</h2>
         </div>
 
         <div className="hidden gap-8 md:flex">
@@ -21,12 +21,12 @@ export default function Header() {
           <Link to="/contact">Contact</Link>
         </div>
 
-        <div className="flex w-60 justify-end gap-4">
+        <div className="flex w-full lg:w-60 justify-end gap-4">
           <ThemeToggle></ThemeToggle>
 
           {user == null ? (
             <>
-              <Link to="/login">
+              <Link to="/login" className="hidden sm:visible">
                 <button className="btn btn-ghost rounded-lg">Log In</button>
               </Link>
 
