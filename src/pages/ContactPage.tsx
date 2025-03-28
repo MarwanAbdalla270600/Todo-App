@@ -28,8 +28,11 @@ export default function ContactPage() {
 
   return (
     <section className="mx-auto flex h-full max-w-3xl flex-1 flex-col items-center justify-center gap-6 px-4">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4 p-8 rounded-md">
-        <h1 className="text-5xl font-semibold text-center">Contact</h1>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full space-y-4 rounded-md p-8"
+      >
+        <h1 className="text-center text-5xl font-semibold">Contact</h1>
         <h2 className="text-base-content text-center text-2xl">
           We're here for you: Connect with us for any questions or concerns
         </h2>
@@ -50,7 +53,7 @@ export default function ContactPage() {
         <textarea
           {...register("message", { required: "Message is required" })}
           placeholder="Your Message"
-          className="textarea textarea-bordered w-full"
+          className="textarea textarea-bordered w-full focus:outline-0"
           rows={5}
         />
         {errors.message && (
