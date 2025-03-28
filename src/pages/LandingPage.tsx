@@ -2,8 +2,8 @@ import { Link } from "react-router";
 
 export default function LandingPage() {
   return (
-    <main className="flex flex-col gap-8 p-4">
-      <section className="flex items-center justify-between py-20">
+    <main className="flex flex-col gap-8">
+      <section className="mx-auto flex max-w-7xl items-center justify-between py-20">
         <div className="flex max-w-1/2 flex-col gap-8">
           <h1 className="text-7xl font-semibold">
             <span className="text-primary">Unlock</span> Your Potential<br></br>{" "}
@@ -33,21 +33,23 @@ export default function LandingPage() {
         </figure>
       </section>
 
-      <section className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-20">
-        <p className="text-primary text-xl">Hello,</p>
-        <h2 className="text-4xl font-semibold">I am Ahmed Adel</h2>
-        <p className="text-base-content text-center text-xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel
-          velit vitae magna fermentum ultrices. Sed nec nulla at nisl dapibus
-          tincidunt. Vivamus non mauris eu erat consequat finibus. Curabitur
-          placerat sapien a lectus sodales, sit amet congue magna laoreet. Nunc
-          auctor, ligula sed accumsan aliquet, purus augue tincidunt sapien, nec
-          semper elit arcu nec risus.
-        </p>
-        <video controls>
-          <source src="videos/introduction.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <section className="bg-base-200 w-full py-20">
+        <div className="flex max-w-3xl mx-auto flex-col items-center gap-6">
+          <p className="text-primary text-xl">Hello,</p>
+          <h2 className="text-4xl font-semibold">I am Ahmed Adel</h2>
+          <p className="text-base-content text-center text-xl">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel
+            velit vitae magna fermentum ultrices. Sed nec nulla at nisl dapibus
+            tincidunt. Vivamus non mauris eu erat consequat finibus. Curabitur
+            placerat sapien a lectus sodales, sit amet congue magna laoreet.
+            Nunc auctor, ligula sed accumsan aliquet, purus augue tincidunt
+            sapien, nec semper elit arcu nec risus.
+          </p>
+          <video controls>
+            <source src="videos/introduction.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </section>
     </main>
   );

@@ -27,7 +27,7 @@ export default function CoursePage() {
   };
 
   return (
-    <div className="mx-auto flex flex-col items-center gap-12 p-4">
+    <main className="mx-auto flex max-w-7xl flex-col items-center gap-12 p-4 px-4">
       <div className="flex flex-col items-center gap-6">
         <h1 className="text-4xl font-semibold">Build Real-World Skills</h1>
         <h2 className="text-2xl">
@@ -50,6 +50,6 @@ export default function CoursePage() {
           </Link>
         ))}
       </div>{" "}
-    </div>
+    </main>
   );
 }
