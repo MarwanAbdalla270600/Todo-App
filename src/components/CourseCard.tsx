@@ -1,4 +1,4 @@
-import { Course } from "../../models/course-interface";
+import { Course } from "../models/course-interface";
 
 export default function CourseCard({ course }: { course: Course }) {
   return (

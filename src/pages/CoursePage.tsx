@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CourseCard from "../components/shared/CourseCard";
+import CourseCard from "../components/CourseCard";
 import { useCourseStore } from "../store/courseStore";
 import { Course } from "../models/course-interface";
 import { Link } from "react-router";

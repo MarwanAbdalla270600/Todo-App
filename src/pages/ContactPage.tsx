@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase"; // adjust path as needed
-import InputField from "../components/shared/InputField";
+import InputField from "../components/InputField";
 
 type FormData = {
   name: string;

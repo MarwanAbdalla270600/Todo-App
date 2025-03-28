@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { useThemeStore } from "../../store/themeStore";
+import { useThemeStore } from "../store/themeStore";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme, initTheme } = useThemeStore();

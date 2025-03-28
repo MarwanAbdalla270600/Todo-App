@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAuthStore from "../../store/authStore";
-import InputField from "../../components/shared/InputField";
-import Logo from "../../components/shared/Logo";
+import InputField from "../../components/InputField";
+import Logo from "../../components/Logo";
 
 type FormFields = {
   name: string;

@@ -1,4 +1,4 @@
-import Logo from "../components/shared/Logo";
+import Logo from "../components/Logo";
 import useAuthStore from "../store/authStore";
 
 export default function DashboardPage() {

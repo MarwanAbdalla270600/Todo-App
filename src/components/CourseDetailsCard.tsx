@@ -1,4 +1,4 @@
-import { Course } from "../../models/course-interface";
+import { Course } from "../models/course-interface";
 import { BsBarChartFill } from "react-icons/bs";
 import { BiSolidVideo } from "react-icons/bi";
 import { LuFileText } from "react-icons/lu";

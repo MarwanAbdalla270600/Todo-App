@@ -1,6 +1,6 @@
 import "./App.css";
-import Footer from "./components/shared/Footer";
-import Header from "./components/shared/Header";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import AuthRoutes from "./routes/authRoutes";
 import useAuthStore from "./store/authStore";
 import { useEffect } from "react";
@@ -27,7 +27,6 @@ function App() {
         <AuthRoutes />
       </div>
       {!hideHeader && <Footer />}{" "}
-
     </div>
   );
 }
