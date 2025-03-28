@@ -1,19 +1,59 @@
+import { motion } from "framer-motion";
+
 import { Link } from "react-router";
 
 export default function LandingPage() {
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const zoomIn = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <main className="flex flex-col gap-8">
-      <section className="mx-auto flex max-w-7xl items-center justify-between py-20">
+      <motion.section
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="mx-auto flex max-w-7xl items-center justify-between py-20"
+      >
         <div className="flex max-w-1/2 flex-col gap-8">
-          <h1 className="text-7xl font-semibold">
-            <span className="text-primary">Unlock</span> Your Potential<br></br>{" "}
+          {/* h1 zoom in */}
+          <motion.h1 variants={zoomIn} className="text-7xl font-semibold">
+            <span className="text-primary">Unlock</span> Your Potential
+            <br />
             Learn Without Limits
-          </h1>
-          <p className="w-full text-xl">
+          </motion.h1>
+
+          {/* paragraph fades in */}
+          <motion.p variants={fadeIn} className="w-full text-xl">
             Learn new skills, improve your career, or dive into your passion
             projects
-          </p>
-          <div className="flex gap-4">
+          </motion.p>
+
+          {/* buttons fade in */}
+          <motion.div variants={fadeIn} className="flex gap-4">
             <Link
               to="/register"
               className="btn btn-primary rounded-4xl py-6 text-xl text-black"
@@ -26,15 +66,17 @@ export default function LandingPage() {
             >
               Preview Courses
             </Link>
-          </div>
+          </motion.div>
         </div>
-        <figure className="max-w-1/2">
+
+        {/* image zooms in */}
+        <motion.figure variants={zoomIn} className="max-w-1/2">
           <img src="images/landing-page/hero.svg" />
-        </figure>
-      </section>
+        </motion.figure>
+      </motion.section>
 
       <section className="bg-base-200 w-full py-20">
-        <div className="flex max-w-3xl mx-auto flex-col items-center gap-6">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6">
           <p className="text-primary text-xl">Hello,</p>
           <h2 className="text-4xl font-semibold">I am Ahmed Adel</h2>
           <p className="text-base-content text-center text-xl">

@@ -27,10 +27,10 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="mx-auto flex h-full max-w-3xl flex-1 flex-col items-center justify-center gap-6 px-4">
+    <section className="mx-auto flex h-full max-w-3xl flex-col items-center justify-center gap-6 px-4">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full space-y-4 rounded-md p-8"
+        className="w-full space-y-4 rounded-md p-8 pt-20"
       >
         <h1 className="text-center text-5xl font-semibold">Contact</h1>
         <h2 className="text-base-content text-center text-2xl">

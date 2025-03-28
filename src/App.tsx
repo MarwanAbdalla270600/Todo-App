@@ -22,9 +22,7 @@ function App() {
   return (
     <div>
       {!hideHeader && <Header />}{" "}
-      <div
-        className={`flex min-h-screen flex-col ${!hideHeader ? "pt-20" : ""}`}
-      >
+      <div className={`${!hideHeader ? "pt-20" : ""}`}>
         <AuthRoutes />
       </div>
     </div>
