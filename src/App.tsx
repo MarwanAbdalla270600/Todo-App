@@ -21,9 +21,9 @@ function App() {
   }, [initAuth]);
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       {!hideHeader && <Header />}{" "}
-      <div className={`${!hideHeader ? "pt-20" : ""}`}>
+      <div className={`${!hideHeader ? "pt-20" : ""} flex-1`}>
         <AuthRoutes />
       </div>
       {!hideHeader && <Footer />}{" "}

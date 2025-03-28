@@ -6,6 +6,7 @@ interface CourseStore {
   allCourses: Course[];
   userCourses: Course[];
   allCoursesLoaded: boolean;
+  loading: boolean;
   loadAllCourses: () => Promise<void>;
   loadCourseBySlug: (slug: string) => Promise<Course | null>;
   //loadUserCourses: (uid: string) => Promise<void>;
@@ -15,13 +16,23 @@ export const useCourseStore = create<CourseStore>((set, get) => ({
   allCourses: [],
   userCourses: [],
   allCoursesLoaded: false,
-
+  loading: false,
   loadAllCourses: async () => {
-    // Only load if not already loaded
     if (get().allCoursesLoaded) return;
 
-    const data = await getAllCourses();
-    set({ allCourses: data, allCoursesLoaded: true });
+    set({ loading: true });
+
+    try {
+      const data = await getAllCourses();
+      set({
+        allCourses: data,
+        allCoursesLoaded: true,
+        loading: false,
+      });
+    } catch (err) {
+      console.error("Error loading courses", err);
+      set({ loading: false });
+    }
   },
 
   loadCourseBySlug: async (slug: string) => {

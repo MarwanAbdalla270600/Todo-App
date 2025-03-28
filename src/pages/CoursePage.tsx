@@ -3,9 +3,10 @@ import CourseCard from "../components/CourseCard";
 import { useCourseStore } from "../store/courseStore";
 import { Course } from "../models/course-interface";
 import { Link } from "react-router";
+import CourseCardSkeleton from "../components/CourseCardSkeleton";
 
 export default function CoursePage() {
-  const { allCourses, loadAllCourses } = useCourseStore();
+  const { allCourses, loadAllCourses, loading } = useCourseStore();
   const [filteredCourses, setFilteredCourses] = useState<Course[]>([]);
 
   useEffect(() => {
@@ -39,17 +40,21 @@ export default function CoursePage() {
         onChange={handleSearch}
         className="input w-full max-w-md rounded-3xl border border-gray-300 px-4 py-2 focus:outline-none"
       />
-      <div className="grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {filteredCourses.map((course) => (
-          <Link
-            className="block h-full"
-            to={`/courses/${course.slug}`}
-            key={course.id}
-          >
-            <CourseCard key={course.id} course={course} />
-          </Link>
-        ))}
-      </div>{" "}
+      <div className="grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {loading
+          ? Array.from({ length: 6 }).map((_, i) => (
+              <CourseCardSkeleton key={i} />
+            ))
+          : filteredCourses.map((course) => (
+              <Link
+                className="block h-full"
+                to={`/courses/${course.slug}`}
+                key={course.id}
+              >
+                <CourseCard course={course} />
+              </Link>
+            ))}
+      </div>
     </main>
   );
 }
