@@ -8,25 +8,23 @@ export default function Header() {
 
   return (
     <header className="bg-base-100/50 fixed z-50 w-full backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
-        <div className="flex w-60 items-center gap-2">
-          <Logo></Logo>
-          <h2 className="hidden text-2xl sm:visible">Learnhub</h2>
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 p-4 md:flex-row">
+        <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
+            <Logo></Logo>
+            <h2 className="mr-4 text-2xl">Learnhub</h2>
+          </Link>
+
+          <ThemeToggle />
         </div>
 
-        <div className="hidden gap-8 md:flex">
-          <Link to="/">How we work</Link>
+        <div className="flex w-fit items-center gap-8">
           <Link to="/courses">Courses</Link>
-          <a>Membership</a>
           <Link to="/contact">Contact</Link>
-        </div>
-
-        <div className="flex w-full lg:w-60 justify-end gap-4">
-          <ThemeToggle></ThemeToggle>
 
           {user == null ? (
             <>
-              <Link to="/login" className="hidden sm:visible">
+              <Link to="/login">
                 <button className="btn btn-ghost rounded-lg">Log In</button>
               </Link>
 
@@ -36,18 +34,14 @@ export default function Header() {
             </>
           ) : (
             <>
-              <div className="dropdown dropdown-end cursor-pointer">
-                <div tabIndex={0} role="button" className="m-1">
-                  {user.displayName}
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-box z-1 flex w-52 flex-col gap-2 border-[1px] border-gray-500 p-2 shadow-sm"
-                >
-                  <li>Edit Profile</li>
-                  <li onClick={logoutUser}>Log out</li>
-                </ul>
-              </div>
+              <span>{user.displayName}</span>
+
+              <button
+                className="btn btn-outline rounded-lg"
+                onClick={logoutUser}
+              >
+                Log out
+              </button>
             </>
           )}
         </div>
